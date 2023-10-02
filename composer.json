@@ -1,0 +1,15 @@
+{
+    "name": "iamso/php_framework",
+    "autoload": {
+        "psr-4": {
+            "root\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "FutureIntent",
+            "email": "IamSoulfuller@gmail.com"
+        }
+    ],
+    "require": {}
+}
