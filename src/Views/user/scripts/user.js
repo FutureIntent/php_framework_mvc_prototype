@@ -1,3 +1,9 @@
+const attr = {
+    credentials: 'include',
+    headers: {
+        "Content-Type": "application/json"
+    }
+}
 
 const register = () => {
 
@@ -14,11 +20,8 @@ const register = () => {
 
     fetch('/user/register', {
         method: 'POST',
-        credentials: 'include',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(req_body)
+        body: JSON.stringify(req_body),
+        ...attr
     })
     .then(res => res.json())
     .then(res => {
@@ -27,4 +30,28 @@ const register = () => {
     })
     .catch(err => console.log(err))
 
+}
+
+const login = () => {
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const message = document.getElementById('message');
+
+    req_body = {
+        'email': email,
+        'password': password
+    }
+
+    fetch('/user/login', {
+        method: 'POST',
+        body: JSON.stringify(req_body),
+        ...attr
+    })
+    .then(res => res.json())
+    .then(res => {
+        message.innerHTML = res.message;
+        console.log(res);
+    })
+    .catch(err => console.log(err))
 }

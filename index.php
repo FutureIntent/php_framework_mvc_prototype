@@ -1,10 +1,12 @@
 <?php
 
-use root\src\Request;
+use root\src\Core\Request;
 
 use function root\src\Helpers\substrParams;
 
 require 'vendor/autoload.php';
+
+session_start();
 
 $req_uri = $_SERVER['REQUEST_URI'];
 $req_method = $_SERVER['REQUEST_METHOD'];

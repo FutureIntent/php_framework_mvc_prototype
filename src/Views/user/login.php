@@ -2,21 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User list</title>
+    <title>User List</title>
     <script type="text/javascript" src="./../../../src/Views/user/scripts/user.js"></script>
 </head>
 <body>
-    <h1>User registration</h1>
+    <h1>Login</h1>
 
     <label for="email">Email:</label>
     <br>
     <input placeholder='Email' id='email' name='email' type='email' />
-    <br>
-
-    <br>
-    <label for="name">Name:</label>
-    <br>
-    <input placeholder='Name' id='name' name='name' type='text' />
     <br>
 
     <br>
@@ -26,7 +20,7 @@
     <br>
 
     <br>
-    <button type='submit' onclick='register()'>
+    <button type='submit' onclick='login()'>
         Submit
     </button>
 

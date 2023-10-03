@@ -2,7 +2,7 @@
 
 namespace root\src\Models;
 
-use root\src\Database;
+use root\src\Core\Database;
 
 class User {
 
@@ -67,13 +67,21 @@ class User {
 
     //REPO METHODS
     public function showUsers() {
+        $dataSet = array();
+
         $sql = "SELECT * from user";
         $result = $this->db->query($sql);
-        $dataSet = array();
 
         while($current = $result->fetch_assoc()) array_push($dataSet, $current);
         
         return $dataSet;
+    }
+
+    public function getByEmailAndPassword() {
+        $sql = "SELECT * from user WHERE email = '{$this -> email}' AND password = '{$this -> password}'";
+        $result = $this->db->query($sql);
+
+        return $result->fetch_assoc();
     }
 
     public function storeUser() {
@@ -82,22 +90,8 @@ class User {
         $password = $this->password;
         $role = 'user';
 
-        try {
-            $sql = "INSERT INTO user (email, name, password, role) VALUES ('$email', '$name', '$password', '$role')";
-            $this->db->query($sql);
-        }
-        catch(\Exception $err){
-            header("Content-type: application/json; charset=utf-8", true, 500);
-            echo json_encode(array(
-                'message' => $err->getMessage()
-            ));
-            die();
-        }
-
-        header("Content-type: application/json; charset=utf-8", true, 200);
-        echo json_encode(array(
-            'message' => 'success'
-        ));
-        die();
+        $sql = "INSERT INTO user (email, name, password, role) VALUES ('$email', '$name', '$password', '$role')";
+        $this->db->query($sql);
     }
+
 }

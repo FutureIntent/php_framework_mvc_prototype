@@ -2,13 +2,14 @@
 
 namespace root\src\Routing;
 
-use root\src\Router;
-use root\src\Controllers\UserController;
+use root\src\Core\Router;
+
+include_once('./src/Routing/user/userRoutes.php');
+include_once('./src/Routing/tab/tabRoutes.php');
 
 $router = new Router();
 
-$router->addRoute('/user', UserController::class, 'index_view', 'GET');
-$router->addRoute('/user/register', UserController::class, 'register_view', 'GET');
-$router->addRoute('/user/register', UserController::class, 'register', 'POST');
+addUserRoutes($router);
+addTabRoutes($router);
 
 return $router;
