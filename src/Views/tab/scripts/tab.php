@@ -28,9 +28,13 @@ function renderNode($node, $tabs) {
     echo "
     <ul>
        </br>
-       <input type='text' value=".$node['header']." id='header_".$node['id']."' />
+       <input type='text' name='header_".$node['id']."'>
+            ".$node['header']."
+       </input>
        </br>
-       <input type='text' value=".$node['content']." id='content_".$node['id']."' />
+       <input type='text' name='content_".$node['id']."' />
+            ".$node['content']."
+       </input>
        </br>
        <button name='add_".$node['id']."' >Add</button>
        <button name='refresh_".$node['id']."' > Refresh </button>
