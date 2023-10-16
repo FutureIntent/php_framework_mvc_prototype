@@ -44,6 +44,10 @@ class User {
     }
 
     //SETTERS
+    public function setId($id){
+        $this->id = $id;
+    }
+
     public function setEmail($email){
         $this->email = $email;
     }
@@ -91,7 +95,9 @@ class User {
         $role = 'user';
 
         $sql = "INSERT INTO user (email, name, password, role) VALUES ('$email', '$name', '$password', '$role')";
-        $this->db->query($sql);
+        $result = $this->db->query($sql);
+
+        return $result;
     }
 
 }

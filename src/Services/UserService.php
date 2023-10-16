@@ -39,7 +39,7 @@ class UserService {
         $data = $request->req_body;
         $user = new User();
 
-        $user->setEmail($data['email']);
+        $user->setEmail(strtolower($data['email']));
         $user->setName($data['name']);
         $user->setPassword($data['password']);
 
@@ -60,7 +60,7 @@ class UserService {
         $data = $request->req_body;
         $user = new User();
 
-        $user->setEmail($data['email']);
+        $user->setEmail(strtolower($data['email']));
         $user->setPassword($data['password']);
 
         try{

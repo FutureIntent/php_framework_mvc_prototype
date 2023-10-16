@@ -44,6 +44,10 @@ class Tab {
     }
 
     //SETTERS
+    public function setId($id){
+        $this->id = $id;
+    }
+
     public function setHeader($header){
         $this->header = $header;
     }
@@ -69,7 +73,7 @@ class Tab {
     public function showTabs() {
         $dataSet = array();
 
-        $sql = "SELECT * from tabs WHERE user_id = {$_SESSION['id']}";
+        $sql = "SELECT * from tabs WHERE user_id = {$this->user_id}";
         $result = $this->db->query($sql);
 
         while($current = $result->fetch_assoc()) array_push($dataSet, $current);

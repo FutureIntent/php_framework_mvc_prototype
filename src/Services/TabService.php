@@ -15,6 +15,8 @@ class TabService {
         $data = array();
         $message = 'success';
 
+        $tab->setUserId($_SESSION['id']);
+
         try{
             $data = $tab->showTabs();
             $tab->getDB()->close();
